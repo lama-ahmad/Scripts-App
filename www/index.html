@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+App-o-Mat jQuery Mobile Cordova starter template
+Copyright 2014 Lou Franco
+https://github.com/app-o-mat/jqm-cordova-template-project
+http://app-o-mat.com
+
+MIT License
+https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
+-->
+<head>	
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+
+
+	<title>Script</title>
+
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="lib/jquery-mobile/css/jquery.mobile-1.4.0.min.css" />
+	
+	<script type="text/javascript" src="lib/jquery-mobile/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="lib/jquery-mobile-router/js/jquery.mobile.router.min.js"></script>
+	<script type="text/javascript" src="lib/jquery-mobile/js/jquery.mobile-1.4.0.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script src="app.js"></script>
+</head>
+
+<body>
+
+<!-- Home Page -->
+
+<div data-role="page" id="home">
+	<div data-role="header" data-position="fixed">
+		<h1>Scripts</h1>
+		<a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menu</a>
+	</div>
+
+	<div data-role="panel" id="myPanel"> 
+		<div>
+		<h2>Navigate to:</h2>
+    	<ul data-role="listview">
+    		<li><a href="#about">About Scripts</a><li>
+    		<li><a href="#create">Create a Petition</a></li>
+    		<li><a href="#home">Browse Active Petitions</a></li>
+    	</ul>
+   		</div>
+ 	 </div> 
+
+
+
+	<div data-role="main" class="ui-content">
+
+
+		<h2 style="text-align: center">Active Petitions</h2>
+		<a href="#create" class="ui-btn ui-shadow">Create Petition</a>
+
+		<ul data-role="listview" data-inset="true" id="petitionlist">
+
+		</ul>
+
+	</div>
+
+</div>
+
+<!-- About Scripts -->
+<div data-role="page" id="about">
+	<div data-role="header" data-position="fixed">
+		<h1>Scripts</h1>
+		<a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menu</a>
+	</div>
+
+
+	<div data-role="panel" id="myPanel"> 
+		<div>
+		<h2>Navigate to:</h2>
+    	<ul data-role="listview">
+    		<li><a href="#about">About Scripts</a><li>
+    		<li><a href="#create">Create a Petition</a></li>
+    		<li><a href="#home">Browse Active Petitions</a></li>
+    	</ul>
+   		</div>
+ 	 </div> 
+
+	<div data-role="main" class="ui-content">
+		<h1>About Scripts</h1>
+		<p>Scripts is an application targeted towards getting rid of the phenomena of “Slacktivism”. Slacktivism is a combination of the words “slacker” and “activism” which has increasingly been used to describe the disconnect between awareness and action through the use of social media.</p>
+		<h1>Why Scripts?</h1>
+		<p> Petition creators develop a template for users to be able to know exactly what to say to an issue target. Scripts doesn’t just ask the user to take action, it guides them through a template and makes the phone number of the issue target accessible. Signers of a petition can also see what other users have to say about the issue that they care about. </p> 
+
+
+	</div>
+</div>
+
+<!-- Create a Petition -->
+
+<div data-role="page" id="create">
+
+	<div data-role="header" data-position="fixed" data-add-back-btn="true">
+		<h1>Scripts</h1>
+	</div>
+
+	<div data-role="main" class="ui-content">
+		<h2 style="text-align: center">Create a Petition</h2>
+
+		<div style="text-align: center">
+
+            <section style="padding: 8px">
+              <input type="text" id="title" class="text-input" ng-model="text" placeholder="Title your Petition." style="display: block; width: 100%">
+            </section>
+
+            <section style="padding: 8px">
+              <input type="text" id="description" class="text-input" ng-model="text2" placeholder="Write a headline" style="display: block; width: 100%">
+            </section>
+
+            <section style="padding: 8px">
+              <input type="email" id="emailaddress" class="text-input" ng-model="text3" placeholder="Email of Issue Target" style="display: block; width: 100%">
+            </section>
+
+            <section style="padding: 8px">
+              <input type="tel" id="telnum" class="text-input" ng-model="text4" placeholder="Contact Number of Issue Target" style="display: block; width: 100%">
+            </section>
+
+            <section style="padding: 0 8px 8px">
+              <textarea class="textarea" id="script" ng-model="text5" placeholder="What should the Signee say to the Issue Target? Write a template for a phone call." style="width: 100%; height: 100px;"></textarea>
+            </section>
+
+
+            <section style="padding: 0 8px 8px">
+              <textarea class="textarea" id="summary" ng-model="text5" placeholder="Describe the issue" style="width: 100%; height: 100px;"></textarea>
+            </section>
+
+            <section style="padding: 0 8px 8px">
+              <a href="#home" onclick="addPetition();" class="ui-btn ui-shadow">Submit</a>
+            </section>
+
+      </div>
+    </div>
+
+</div>
+
+<!-- Sign a Petition -->
+
+<div data-role="page" id="sign">
+
+	<div data-role="header" data-position="fixed" data-add-back-btn="true">
+		<h1>Scripts</h1>
+	</div>
+
+	<div data-role="main" class="ui-content">
+		<h2 style="text-align: center">About This Petition</h2>
+		<p id="petition-summary"></p>
+		<p id="call-num"></p>
+		<div data-role="collapsible">
+			<h4>What Should I Say?</h4>
+			<p style=text-align: "center" id="call-script"></p>
+		</div>
+		<p id="signatures"></p>
+	</div>
+
+
+
+		<div style="text-align: center">
+			<h2 style="text-align: center">Sign this Petition</h2>
+            <section style="padding: 8px">
+              <input type="text" id="name-signee" class="text-input" ng-model="text" placeholder="Enter your name" style="display: block; width: 100%">
+            </section>
+
+            <section style="padding: 8px">
+              <input type="text" id="email-signee" class="text-input" ng-model="text2" placeholder="Enter your email" style="display: block; width: 100%">
+            </section>
+
+            <section style="padding: 0 8px 8px">
+              <textarea class="textarea" id="reason-signee" ng-model="text5" placeholder="Why do you care?" style="width: 100%; height: 100px;"></textarea>
+            </section>
+
+            <section style="padding: 0 8px 8px">
+              <a href="#action" onclick="addSignee();" class="ui-btn ui-shadow">Take Action</a>
+            </section>
+
+      </div>
+	</div>
+
+</div>
+
+<!-- Action Steps -->
+
+<div data-role="page" id="action">
+
+		<div data-role="header" data-position="fixed" data-add-back-btn="true">
+			<h1>Scripts</h1>
+			<a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menu</a>
+		</div>
+
+		<div data-role="panel" id="myPanel"> 
+			<div>
+			<h2>Navigate to:</h2>
+    		<ul data-role="listview">
+    			<li><a href="#about">About Scripts</a><li>
+    			<li><a href="#create">Create a Petition</a></li>
+    			<li><a href="#home">Browse Active Petitions</a></li>
+    		</ul>
+   			</div>
+ 	 	</div> 
+
+		<div data-role="main" class="ui-content">
+			<h2 style="text-align: center">Action Steps</h2>
+
+			<h3 style="text-align: center">Call the Target</h3>
+			<p id="call-num"></p>
+			<div data-role="collapsible">
+				<h4>What Should I Say?</h4>
+				<p style=text-align: "center" id="call-script"></p>
+			</div>
+
+			<h3 style="text-align: center">Attach a Video</h3>
+			<p style="text-align: center">Featured being developed! Check back soon.</p>
+
+			<h3 style="text-align: center">Check out what others have to say:</h3>
+
+		</div>
+
+		<div data-role="content" class="ui-content" id="call" style='display: none'>
+		
+		</div>
+
+
+</div>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="lib/fastclick/js/fastclick.js"></script>
+<script type="text/javascript" src="lib/handlebars/js/handlebars-v1.3.0.js"></script>
+
+<script type="text/javascript">
+	appomat.app.initialize();
+</script>
+
+</body>
+</html>

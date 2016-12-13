@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+App-o-Mat jQuery Mobile Cordova starter template
+Copyright 2014 Lou Franco
+https://github.com/app-o-mat/jqm-cordova-template-project
+http://app-o-mat.com
+
+MIT License
+https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
+-->
+<head>	
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
+
+	<title>App-o-Mat</title>
+
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="lib/jquery-mobile/css/jquery.mobile-1.4.0.min.css" />
+	
+	<script type="text/javascript" src="lib/jquery-mobile/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="lib/jquery-mobile-router/js/jquery.mobile.router.min.js"></script>
+	<script type="text/javascript" src="lib/jquery-mobile/js/jquery.mobile-1.4.0.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script src="app.js"></script>
+</head>
+
+<body>
+
+<!-- Home Page -->
+
+<div data-role="page" id="home">
+	<div data-role="header" data-position="fixed">
+		<h1>Petition App</h1>
+	</div>
+
+	<div data-role="main" class="ui-content">
+		<h2 style="text-align: center">Active Petitions</h2>
+		<a href="#create" class="ui-btn ui-shadow">Create Petition</a>
+
+		<ul data-role="listview" data-inset="true" id="petitionlist">
+<!--     		<li><a href="#sign">Acura</a></li>
+   			<li><a href="#">Audi</a></li>
+    		<li><a href="#">BMW</a></li>
+    		<li><a href="#">Cadillac</a></li>
+    		<li><a href="#">Ferrari</a></li> -->
+		</ul>
+
+	</div>
+
+</div>
+
+<!-- Create a Petition -->
+
+<div data-role="page" id="create">
+
+	<div data-role="header" data-position="fixed" data-add-back-btn="true">
+		<h1>Petition App</h1>
+	</div>
+
+	<div data-role="main" class="ui-content">
+		<h2 style="text-align: center">Create a Petition</h2>
+
+		<div style="text-align: center">
+
+            <section style="padding: 8px">
+              <input type="text" id="title" class="text-input" ng-model="text" placeholder="Title your Petition." style="display: block; width: 100%">
+            </section>
+
+            <section style="padding: 8px">
+              <input type="text" id="description" class="text-input" ng-model="text2" placeholder="Write a headline" style="display: block; width: 100%">
+            </section>
+
+            <section style="padding: 8px">
+              <input type="email" id="emailaddress" class="text-input" ng-model="text3" placeholder="Email of Issue Target" style="display: block; width: 100%">
+            </section>
+
+            <section style="padding: 8px">
+              <input type="tel" id="telnum" class="text-input" ng-model="text4" placeholder="Contact Number of Issue Target" style="display: block; width: 100%">
+            </section>
+
+            <section style="padding: 0 8px 8px">
+              <textarea class="textarea" id="summary" ng-model="text5" placeholder="Describe the issue" style="width: 100%; height: 100px;"></textarea>
+            </section>
+
+            <section style="padding: 0 8px 8px">
+              <button id="addpetition" onclick="addPetition();">Submit</button>
+            </section>
+
+      </div>
+    </div>
+
+</div>
+
+<!-- Sign a Petition -->
+
+<div data-role="page" id="sign">
+
+	<div data-role="header" data-position="fixed" data-add-back-btn="true">
+		<h1>Petition App</h1>
+	</div>
+
+	<div data-role="main" class="ui-content">
+		<h2 style="text-align: center">About This Petition</h2>
+		<p id="petition-summary"></div>
+	</div>
+
+</div>
+
+<!-- Action Steps -->
+
+<div data-role="page" id="action">
+
+
+</div>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="lib/fastclick/js/fastclick.js"></script>
+<script type="text/javascript" src="lib/handlebars/js/handlebars-v1.3.0.js"></script>
+
+<script type="text/javascript">
+	appomat.app.initialize();
+</script>
+
+</body>
+</html>

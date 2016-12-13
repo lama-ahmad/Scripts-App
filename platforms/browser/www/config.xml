@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.example.hello" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>petitionmobile</name>
+    <description>
+        A petition Cordova application using jQuery Mobile
+    </description>
+    <author email="lamaahmad@nyu.edu" href="http://app-o-mat.com">
+        Lama Ahmad
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#595b5b" />
+</widget>
